@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>How to Check If Your Android Device Has FRP Enabled</title>
+  <meta name="description" content="Step-by-step guide to determine whether Factory Reset Protection (FRP) is enabled on your Android device — checks, tooltips, and safety tips." />
+  <meta name="keywords" content="check FRP, FRP enabled, Android FRP, Factory Reset Protection check, Gsm neo frp" />
+  <meta name="robots" content="index, follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root{
+      --accent:#ff7a00; /* orange */
+      --accent-2:#ff9a3d;
+      --bg:#fffaf5;
+      --card:#ffffff;
+      --muted:#666;
+      --radius:14px;
+      --maxw:1100px;
+      --pad:26px;
+      --shadow:0 14px 40px rgba(255,122,0,0.08);
+      --sans: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      background:linear-gradient(180deg,#fffaf5,#fff7f0);
+      color:#222;
+      -webkit-font-smoothing:antialiased;
+      line-height:1.7;
+    }
+
+    /* Huge hero */
+    .hero{
+      height:340px; /* increased height as requested */
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      background:linear-gradient(120deg,var(--accent),var(--accent-2));
+      color:white;
+      padding:28px;
+      box-shadow:0 8px 28px rgba(255,122,0,0.12);
+    }
+    .hero h1{
+      margin:0;
+      font-size:34px;
+      letter-spacing:0.2px;
+      font-weight:700;
+    }
+    .hero p{margin:10px 0 0; opacity:0.95; font-size:15px}
+
+    .wrap{max-width:var(--maxw); margin:-60px auto 48px; padding:0 18px} /* negative margin to overlap hero */
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:32px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      border:1px solid rgba(0,0,0,0.03);
+    }
+
+    .meta{
+      display:flex;
+      gap:22px;
+      align-items:flex-start;
+      flex-wrap:wrap;
+    }
+    .meta .lead{
+      flex:1 1 620px;
+    }
+    .meta figure{
+      width:220px;
+      min-width:160px;
+      height:140px;
+      border-radius:12px;
+      background:linear-gradient(135deg,#fff6ef,#fff2ea);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--accent);
+      font-weight:700;
+      border:1px solid rgba(255,122,0,0.06);
+    }
+
+    h2{color:var(--accent); margin-top:28px}
+    h3{margin-top:18px; color:#2b2b2b}
+    p{margin:12px 0}
+    ul{margin:10px 0 10px 20px}
+    ol{margin:10px 0 10px 20px}
+    .tip{
+      background:linear-gradient(90deg,#fffaf7,#fff6f0);
+      border-left:5px solid var(--accent);
+      padding:12px 14px;
+      border-radius:8px;
+      color:var(--muted);
+      margin:16px 0;
+    }
+    code{background:#fff3e6; padding:2px 6px; border-radius:6px; font-family:monospace}
+    pre.code{background:#fff3e6; padding:14px; border-radius:8px; overflow:auto; border:1px solid rgba(255,122,0,0.06)}
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .small{font-size:13px; color:#666}
+    footer{max-width:var(--maxw); margin:32px auto 70px; text-align:center; color:#777; font-size:13px}
+
+    @media (max-width:780px){
+      .hero{height:300px; padding:20px}
+      .hero h1{font-size:26px}
+      .wrap{margin:-40px 12px 28px}
+      .meta figure{width:100%; height:120px}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero" role="banner" aria-label="Hero: How to Check If Your Android Device Has FRP Enabled">
+    <div>
+      <h1>How to Check If Your Android Device Has FRP Enabled</h1>
+      <p>Step-by-step checks, safe diagnostic methods, and what each result means for your device and data protection.</p>
+    </div>
+  </header>
+
+  <main class="wrap" role="main">
+    <article class="card" aria-label="Article: How to Check If Your Android Device Has FRP Enabled">
+      <div class="meta">
+        <div class="lead">
+          <p><strong>Factory Reset Protection (FRP)</strong> ties a device to a Google account so that after a factory reset the phone cannot be used without verifying the original account. If you want to learn more technical details or see community-collected recovery notes, resources such as <a href="https://gsmneofrpgratis.com.mx/" target="_blank" rel="noopener noreferrer">Gsm neo frp</a> can be informative—but always follow legal and safety best practices. This guide shows safe and practical methods to check whether FRP is enabled on your Android device and explains the implications of each check.</p>
+
+          <h2>Why check for FRP?</h2>
+          <p>There are three common scenarios where checking FRP matters:</p>
+          <ul>
+            <li><strong>Buying used devices:</strong> confirm activation and ownership status before purchase.</li>
+            <li><strong>Repair & service:</strong> ensure device owners won't get locked out after repairs or resets.</li>
+            <li><strong>Device security audits:</strong> verify that devices enrolled in enterprise management are protected.</li>
+          </ul>
+
+          <h2>Overview of the quick checks</h2>
+          <p>We’ll cover:</p>
+          <ol>
+            <li>Visual & setup checks (no tools required)</li>
+            <li>Settings-based verification</li>
+            <li>Boot & recovery observations</li>
+            <li>ADB and fastboot diagnostics (for advanced users)</li>
+            <li>Server-side activation indicators and vendor tools</li>
+          </ol>
+
+          <h2>1) Visual & setup checks — simplest and safest</h2>
+          <p>Start here if you have physical access to the phone and want a non-technical confirmation.</p>
+          <ul>
+            <li><b>Power on and attempt initial setup:</b> If the phone asks "This device was reset. To continue, sign in with a Google Account previously synced on this device", FRP is active.</li>
+            <li><b>Factory reset via settings:</b> If you can navigate to Settings → System → Reset options → Erase all data, and the device completes setup without asking for a previous account, FRP was likely not active or the account was removed beforehand.</li>
+            <li><b>Seller confirmation:</b> If buying used, ask the seller to remove their Google account from Settings → Accounts before reset. If they can’t do this, treat the device as FRP-protected.</li>
+          </ul>
+
+          <div class="tip">
+            <strong>Tip:</strong> Modern devices often show an OEM activation screen (e.g., Samsung Reactivation Lock) in addition to Google FRP. These owner-backed locks behave similarly — you must use the correct account or vendor unlock procedures.
+          </div>
+
+          <h2>2) Settings & account checks</h2>
+          <p>When you can access the account settings, confirm FRP status indirectly:</p>
+          <ul>
+            <li>Open <code>Settings → Accounts</code>. If a Google account is present and active, FRP will be enabled automatically once you reset the device without removing the account.</li>
+            <li>Check <code>Settings → Security</code> for "Find My Device" or OEM activation locks (Samsung: Reactivation Lock; Xiaomi: Mi Account Lock). These are separate but related mechanisms.</li>
+            <li>If you plan to sell the device, remove all accounts (Settings → Accounts → Remove) and then perform an official factory reset from Settings to avoid FRP complications.</li>
+          </ul>
+
+          <h2>3) Boot & recovery observations</h2>
+          <p>If you boot into recovery mode (power + volume keys), observe messages carefully:</p>
+          <ul>
+            <li>Some devices show FRP-related flags or warnings during boot if the device believes it was reset without proper deactivation.</li>
+            <li>After using recovery to factory reset, try the normal setup — if the device demands previous Google credentials, FRP is enabled.</li>
+          </ul>
+
+          <h2>4) Advanced checks: ADB and fastboot diagnostics</h2>
+          <p>These steps are intended for experienced users or technicians. Use them only if you understand ADB/fastboot and their risks. Always keep backups and ensure you have the owner’s permission.</p>
+
+          <h3>Enable USB debugging</h3>
+          <p>On a working device, enable Developer Options (Settings → About phone → tap Build number 7 times). Then enable <code>USB debugging</code> and connect to a computer with ADB installed.</p>
+
+          <h3>ADB: check accounts and play services</h3>
+          <pre class="code"><code>adb devices
+adb shell pm list users
+adb shell dumpsys account</code></pre>
+          <p>If <code>dumpsys account</code> lists active Google accounts or Play Services data, the device has a bound account that will trigger FRP after a reset.</p>
+
+          <h3>Fastboot: verify OEM lock & boot state</h3>
+          <pre class="code"><code>adb reboot bootloader
+fastboot devices
+fastboot oem device-info      (or vendor-specific command)</code></pre>
+          <p>Some devices expose boot state (LOCKED / UNLOCKED) and verified boot status via fastboot. A locked bootloader + verified boot may indicate stronger anti-rollback and activation protections.</p>
+
+          <div class="tip">
+            <strong>Warning:</strong> Flashing firmware or unlocking the bootloader can change FRP/activation behavior and may void warranties. Avoid these actions unless you know what you are doing.
+          </div>
+
+          <h2>5) Server-side and vendor tools — confirmations beyond the device</h2>
+          <p>FRP is not just a local setting — it uses server-side records. For deeper verification:</p>
+          <ul>
+            <li>Use official vendor support pages or tools to check activation status for IMEI/serial (some OEMs provide activation checks to dealers/support).</li>
+            <li>Community research hubs collect model-specific behavior. For technicians and researchers, resources like <a href="https://frp-research.vercel.app/" target="_blank" rel="noopener noreferrer">FRP Research</a> and detailed technical notes such as <a href="https://alysia87.github.io/FRP-Analysis/" target="_blank" rel="noopener noreferrer">FRP Analysis</a> can provide insights on how specific models enforce factory reset protections.</li>
+          </ul>
+
+          <h2>Common FRP scenarios & what to do</h2>
+          <h3>Buying a used phone that shows FRP during setup</h3>
+          <ol>
+            <li>Ask the seller to sign in and remove their Google account, then perform a factory reset in front of you.</li>
+            <li>If the seller cannot remove the account, do not buy the device unless you have written proof of ownership and vendor support for unlocking.</li>
+          </ol>
+
+          <h3>You've reset your own phone and now it's asking for credentials</h3>
+          <p>Use Google account recovery (https://accounts.google.com/signin/recovery) to regain access. If you still cannot sign in, contact the device manufacturer’s official support with proof of purchase.</p>
+
+          <h3>Technician performing repairs</h3>
+          <p>Document ownership proof, use vendor-provided repair channels, and avoid third-party bypasses that could be illegal or unsafe.</p>
+
+          <h2>Safety, legality, and best practices</h2>
+          <ul>
+            <li>Never attempt to bypass FRP on a device you do not own or have explicit permission to repair.</li>
+            <li>Prefer vendor-authorized repair workflows and documented recovery tools.</li>
+            <li>Always keep backups and maintain account recovery options (email, phone) to avoid lockouts.</li>
+          </ul>
+
+          <h2>Checklist: Quick 10-point FRP verification</h2>
+          <ol>
+            <li>Power on and watch for FRP setup screens.</li>
+            <li>Check Settings → Accounts for active Google accounts.</li>
+            <li>Look for OEM activation locks in Security settings.</li>
+            <li>Perform a Settings-based factory reset (if you own the device) and observe setup.</li>
+            <li>Use ADB dumpsys account to list accounts (advanced).</li>
+            <li>Use fastboot oem device-info to read boot/locked state (advanced).</li>
+            <li>Confirm seller removed accounts before purchase.</li>
+            <li>Check vendor activation/IMEI tools if available.</li>
+            <li>Use trusted community research for model-specific notes (see FRP Research and FRP Analysis).</li>
+            <li>If locked, use Google account recovery or official vendor support with proof of purchase.</li>
+          </ol>
+
+          <h2>Final thoughts</h2>
+          <p>FRP provides important protection for users and reduces the value of stolen devices. Checking FRP status is straightforward in most cases: try the initial setup flow, inspect Accounts in Settings, and—if needed—use ADB/fastboot diagnostics or vendor tools. Always prefer official, legal channels for recovery and keep account recovery details up to date to avoid being locked out of your own device.</p>
+
+        </div>
+
+        <figure aria-hidden="true">
+          <div style="text-align:center; padding:12px;">
+            <svg width="160" height="110" viewBox="0 0 160 110" xmlns="http://www.w3.org/2000/svg">
+              <rect rx="14" width="160" height="110" fill="#fff" />
+              <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#ff7a00" font-size="14" font-weight="700">FRP Check</text>
+            </svg>
+            <p class="small" style="margin-top:8px">Use diagnostics responsibly</p>
+          </div>
+        </figure>
+
+      </div>
+
+    </article>
+  </main>
+
+  <footer>
+    <div class="small">© 2025 </div>
+  </footer>
+
+</body>
+</html>
